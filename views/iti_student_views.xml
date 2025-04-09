@@ -29,13 +29,17 @@
             <form>
                 <header>
                     <button name="approve_action" type="object" string="Approve"/>
+                    <button name="create_level_log" type="object" string="Create Log"/>
+                    <field name="level" widget="statusbar" options="{'clickable':'1'}"/>
                 </header>
                 <sheet>
                     <notebook>
                         <page string="Page1">
                             <group string="Personal Information">
-                                <field name="name" />
+                                <field name="name"/>
+                                <field name="roll_id"/>
                                 <field name="age"/>
+                                <field name="graduate_age"/>
                                 <field name="info"/>
                                 <field name="is_accepted"/>
                                 <field name="birth_date"/>
@@ -45,7 +49,7 @@
                             <group string="Salary Information">
                                 <field name="salary" invisible="not is_working"/>
                                 <field name="is_working"/>
-                                <field name="cv" />
+                                <field name="cv"/>
                             </group>
                         </page>
                         <page string="Track Information">
@@ -53,6 +57,18 @@
                                 <field name="track_id" domain="[('is_opened','=',True)]"/>
                                 <field name="track_capacity"/>
                             </group>
+                        </page>
+                        <page string="Level Logs">
+                            <group>
+                                <field name="level_logs">
+                                    <tree>
+                                        <field name="description"/>
+                                        <field name="create_date"/>
+                                        <field name="create_uid"/>
+                                    </tree>
+                                </field>
+                            </group>
+
                         </page>
                     </notebook>
                 </sheet>
